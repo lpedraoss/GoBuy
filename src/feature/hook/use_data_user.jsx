@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 const useUserData = () => {
   const [users, setUsers] = useState([]);
+  const [authenticatedUser, setAuthenticatedUser] = useState(null);
 
   const urlApi = "https://646d4d739c677e232189e51a.mockapi.io/user";
 
@@ -19,12 +20,17 @@ const useUserData = () => {
     }
   }, []);
 
+  useEffect(() => {
+    // Aquí puedes realizar cualquier lógica adicional cuando el usuario autenticado cambie
+    console.log("Usuario autenticado:", authenticatedUser);
+  }, [authenticatedUser]);
+
   const createUser = async (user) => {
     try {
       const name  = user.name;
       const email = user.email;
       const password = user.password;
-      
+
       const response = await fetch(urlApi, {
         method: "POST",
         headers: {
@@ -42,9 +48,23 @@ const useUserData = () => {
     }
   };
 
+  const authenticateUser = (email, password) => {
+    const authenticatedUser = users.find(
+      (user) => user.email === email && user.password === password
+    );
+
+    if (authenticatedUser) {
+      setAuthenticatedUser(authenticatedUser);
+    } else {
+      console.log("Autenticación fallida");
+    }
+  };
+
   return {
     users,
+    authenticatedUser,
     createUser,
+    authenticateUser,
   };
 };
 
