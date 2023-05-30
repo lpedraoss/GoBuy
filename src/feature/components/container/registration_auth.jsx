@@ -1,4 +1,4 @@
-import { User } from '../../../model/user';
+
 import useUserData from '../../hook/use_data_user';
 import useMessage from '../../hook/use_message';
 import UseValidateForm from '../../hook/use_validate_form';
