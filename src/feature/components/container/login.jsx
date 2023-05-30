@@ -41,7 +41,15 @@ function Login() {
       showSuccessMessage('');
       return;
     }
-    authenticateUser(email, password);
+    const onSuccess = () => {
+      showSuccessMessage("Credenciales correctas");
+    };
+
+    const onFailure = () => {
+      showErrorMessage("Credenciales incorrectas");
+    };
+
+    authenticateUser(email, password,onSuccess,onFailure);
 
     
 
