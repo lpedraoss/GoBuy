@@ -47,7 +47,6 @@ const RegistrationAuth = () => {
   e.target.reset();
   showSuccessMessage("Te has registrado", 2000);
   };
-
   const mssgStyle = showError ? "error-message" : showSuccess ? "success-message" : "";
   const showMssg = showError ? errorMessage : successMessage;
   const optionShowMssg = showError ? showError : showSuccess;
