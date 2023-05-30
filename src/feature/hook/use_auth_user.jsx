@@ -13,7 +13,7 @@ const UseAuthUser = () => {
     console.log("Usuario autenticado:", authenticatedUser);
   }, [authenticatedUser]);
 
-  const authenticateUser = async (email, password) => {
+  const authenticateUser = async (email, password, onSuccess, onFailure) => {
     try {
       const response = await fetch(urlApi);
       const usersData = await response.json();
@@ -23,7 +23,9 @@ const UseAuthUser = () => {
 
       if (authenticatedUser) {
         setAuthenticatedUser(authenticatedUser);
+        onSuccess();
       } else {
+        onFailure();
         console.log("Autenticación fallida");
       }
     } catch (error) {
@@ -31,7 +33,7 @@ const UseAuthUser = () => {
     }
   };
 
-  return {authenticateUser};
+  return { authenticateUser };
 }
 
 export default UseAuthUser;
