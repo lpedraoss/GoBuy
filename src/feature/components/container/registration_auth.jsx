@@ -14,7 +14,7 @@ const RegistrationAuth = () => {
     showError,
     successMessage,
     showSuccess,
-    showErrorMessaage,
+    showErrorMessage,
     showSuccessMessage,
     hideMessage,
   } = useMessage();
@@ -27,13 +27,16 @@ const RegistrationAuth = () => {
     const confirmPassword = e.target.elements.confirmPassword.value;
 
     const user = { name, email, password, confirmPassword };
-    if (!validateFields(user)) {
-      showErrorMessaage("Todos los campos son obligatorios", 2000);
-      return;
-    }
 
-    if (!isValid) {
-      showErrorMessaage("Las contraseñas no coinciden", 2000);
+    if (!validateFields( user )) {
+      if (password !== confirmPassword) {
+        showErrorMessage("Las contraseñas no coinciden.");
+
+      } else {
+        showErrorMessage("Por favor, complete todos los campos.");
+
+      }
+      showSuccessMessage('');
       return;
     }
 

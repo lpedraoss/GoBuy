@@ -7,7 +7,7 @@ const useMessage = () => {
   const [showSuccess, setShowSuccess] = useState(false);
   const [timer, setTimer] = useState(null);
 
-  const showErrorMessaage = (message, duration = 2000) => {
+  const showErrorMessage = (message, duration = 2000) => {
     setErrorMessage(message);
     setShowError(true);
     clearTimer();
@@ -46,7 +46,7 @@ const useMessage = () => {
     showError,
     successMessage,
     showSuccess,
-    showErrorMessaage,
+    showErrorMessage,
     showSuccessMessage,
     hideMessage,
   };
