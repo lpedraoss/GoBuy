@@ -2,6 +2,7 @@
 import useUserData from '../../hook/use_data_user';
 import useMessage from '../../hook/use_message';
 import UseValidateForm from '../../hook/use_validate_form';
+import Message from '../pure/message';
 
 
 
@@ -56,10 +57,7 @@ const RegistrationAuth = () => {
       <main className="contenedor">
         <form className="formulario" onSubmit={handleSubmit}>
           <h1>Registrate</h1>
-          <span className={"message " + mssgStyle}>
-            <p>{showMssg}</p>
-            {optionShowMssg && <button onClick={clearMssg}>Aceptar</button>}
-          </span>
+         <Message mssgStyle={mssgStyle} showMssg={showMssg} optionShowMssg={optionShowMssg} clearMssg={clearMssg}></Message>
           <section className="input-contenedor">
             <input className="input-text" type="text" placeholder="Nombre Completo" name="name" />
           </section>
