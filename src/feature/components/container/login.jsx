@@ -31,7 +31,7 @@ function Login() {
           <section className="input-contenedor">
             <input
               className="input-text"
-              type="text"
+              type="email"
               placeholder="Correo Unal"
               value={email}
               onChange={handleEmailChange}
