@@ -1,4 +1,5 @@
 
+import UseCreateUser from '../../hook/use_create_user';
 import useUserData from '../../hook/use_data_user';
 import useMessage from '../../hook/use_message';
 import UseValidateForm from '../../hook/use_validate_form';
@@ -8,8 +9,9 @@ import Message from '../pure/message';
 
 
 const RegistrationAuth = () => {
-  const { users, createUser } = useUserData();
-  const { isValid, validateFields } = UseValidateForm();
+
+  const { createUser } = UseCreateUser();
+  const { validateFields } = UseValidateForm();
   const {
     errorMessage,
     showError,

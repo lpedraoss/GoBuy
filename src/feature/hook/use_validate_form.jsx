@@ -5,12 +5,12 @@ const UseValidateForm = () => {
 
     const validateFields = (fields) => {
       const isEmpty = Object.values(fields).some((value) => value === "");
-      const isPasswordMatch = fields.password === fields.confirmPassword;
-      setIsValid(!isEmpty && isPasswordMatch);
-      return !isEmpty && isPasswordMatch;
+     
+      setIsValid( !isEmpty );
+      return !isEmpty ;
     };
   
-    return { isValid, validateFields };
+    return { validateFields };
 }
 
 export default UseValidateForm;
