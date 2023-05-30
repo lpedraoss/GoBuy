@@ -31,7 +31,7 @@ const UseAuthUser = () => {
     }
   };
 
-  return {authenticateUser};
+  return { authenticateUser };
 }
 
 export default UseAuthUser;
