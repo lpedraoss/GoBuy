@@ -32,21 +32,21 @@ const RegistrationAuth = () => {
     const user = { name, email, password, confirmPassword };
 
     if (!validateFields( user )) {
-      if (password !== confirmPassword) {
-        showErrorMessage("Las contraseñas no coinciden.");
-
-      } else {
-        showErrorMessage("Por favor, complete todos los campos.");
-
-      }
+      showErrorMessage("Por favor, complete todos los campos.");
       showSuccessMessage('');
       return;
     }
+    if(password!==confirmPassword){
+      showErrorMessage('Las contraseñas no coinciden');
+      showSuccessMessage('');
+      return;
+    }else{
+      createUser(user);
+      e.target.reset();
+      showSuccessMessage("Te has registrado", 2000);
+      };
+    }
 
-  createUser(user);
-  e.target.reset();
-  showSuccessMessage("Te has registrado", 2000);
-  };
   const mssgStyle = showError ? "error-message" : showSuccess ? "success-message" : "";
   const showMssg = showError ? errorMessage : successMessage;
   const optionShowMssg = showError ? showError : showSuccess;
