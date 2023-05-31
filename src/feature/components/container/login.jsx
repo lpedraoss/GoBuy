@@ -48,8 +48,11 @@ function Login() {
     const onFailure = () => {
       showErrorMessage("Credenciales incorrectas");
     };
+    const authEmail = () =>{
+      showErrorMessage("El usuario no existe");
+    }
 
-    authenticateUser(email, password,onSuccess,onFailure);
+    authenticateUser(email, password,onSuccess,onFailure,authEmail);
 
     
 
