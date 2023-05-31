@@ -34,7 +34,7 @@ const RegistrationAuth = () => {
     if (!validateFields( user )) {
       if (password !== confirmPassword) {
         showErrorMessage("Las contraseñas no coinciden.");
-
+      
       } else {
         showErrorMessage("Por favor, complete todos los campos.");
 
