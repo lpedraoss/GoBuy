@@ -37,7 +37,7 @@ const RegistrationAuth = () => {
       return;
     }
     if(password!==confirmPassword){
-      showErrorMessage('Las contraseñas no son iguales');
+      showErrorMessage('Las contraseñas no coinciden');
       showSuccessMessage('');
       return;
     }else{

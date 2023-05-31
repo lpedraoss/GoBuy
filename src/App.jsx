@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-     <RegistrationAuth></RegistrationAuth>
+     <Login></Login>
     </>
   )
 }
