@@ -1,6 +1,7 @@
 
+import { Link, useNavigate } from 'react-router-dom';
 import UseCreateUser from '../../hook/use_create_user';
-import useUserData from '../../hook/use_data_user';
+
 import useMessage from '../../hook/use_message';
 import UseValidateForm from '../../hook/use_validate_form';
 import Message from '../pure/message';
@@ -12,6 +13,7 @@ const RegistrationAuth = () => {
 
   const { createUser } = UseCreateUser();
   const { validateFields } = UseValidateForm();
+  const route = useNavigate();
   const {
     errorMessage,
     showError,
@@ -22,13 +24,13 @@ const RegistrationAuth = () => {
     hideMessage,
   } = useMessage();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const name = e.target.elements.name.value;
     const email = e.target.elements.email.value;
     const password = e.target.elements.password.value;
     const confirmPassword = e.target.elements.confirmPassword.value;
-
+    
     const user = { name, email, password, confirmPassword };
 
     if (!validateFields( user )) {
@@ -41,9 +43,14 @@ const RegistrationAuth = () => {
       showSuccessMessage('');
       return;
     }else{
-      createUser(user);
+      await createUser(user);
       e.target.reset();
       showSuccessMessage("Te has registrado", 2000);
+      // Esperar 2 segundos antes de redirigir al usuario a la página de inicio de sesión
+       await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      //nos redirije al login
+      route('/');
       };
     }
 
@@ -58,6 +65,7 @@ const RegistrationAuth = () => {
       <main className="contenedor">
         <form className="formulario" onSubmit={handleSubmit}>
           <h1>Registrate</h1>
+          
          <Message mssgStyle={mssgStyle} showMssg={showMssg} optionShowMssg={optionShowMssg} clearMssg={clearMssg}></Message>
           <section className="input-contenedor">
             <input className="input-text" type="text" placeholder="Nombre Completo" name="name" />
@@ -81,7 +89,8 @@ const RegistrationAuth = () => {
 
           <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
           <p>
-            ¿Ya tienes una cuenta? <br /> <a className="link" href="login.html"> Iniciar Sesión</a>
+            ¿Ya tienes una cuenta? <br />
+            <Link to="/" className="link">Iniciar Sesión</Link>
           </p>
         </form>
       </main>
