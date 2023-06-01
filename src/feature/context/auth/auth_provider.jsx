@@ -1,17 +1,24 @@
 
 import React, { useState } from 'react';
 import AuthContext from './auth_context';
+import { Status } from '../../../common/status.enum';
 
 const AuthProvider = ({children}) => {
+    let statusLogin = Status.LOGGED_OUT;
     // se crea como falsa para que se redireccione automaticamente al login
-    const [authenticated, setAuthenticated] = useState(false);
-    // cuando inicia sesion cambia a true 
+    const [authenticated, setAuthenticated] = useState(statusLogin);
+    console.log('sesion: ', authenticated)
+   
     const login = ()=> {
-          setAuthenticated(true);
+        statusLogin = Status.LOGGED_IN;
+        
+        setAuthenticated(statusLogin);
+        console.log('iniciando sesion: ',statusLogin);
     }
     const logout = () => {
-        //aqui cambia a false para que no pueda acceder a las rutas privadas
-        setAuthenticated(false);
+        statusLogin = Status.LOGGED_OUT;
+        setAuthenticated(statusLogin);
+        console.log('cerrando sesion: ',statusLogin);
     }
     return (
         <>
