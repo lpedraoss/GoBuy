@@ -16,6 +16,7 @@ import { useContext } from 'react';
             <Routes>
               <Route path="/" element={<Login />} />
               <Route path="/registro" element={<RegistrationAuth />} />
+  
               { authenticated === Status.LOGGED_IN ? (
                 <Route path="/next" element={<Next></Next>} />
               ) : (

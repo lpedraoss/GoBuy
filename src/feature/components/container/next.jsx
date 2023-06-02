@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import UserContext from '../../context/user/user_context';
-import { Link } from 'react-router-dom';
+
 import AuthContext from '../../context/auth/auth_context';
 
 
@@ -14,7 +14,7 @@ const Next = () => {
     }
     return (
         <>
-            <h1>Bienvenido: {name}</h1>
+            <h1>Bienvenido: { name }</h1>
             
             <button className='button' onClick={handleLogout} >cerrar sesion</button>
         </>
