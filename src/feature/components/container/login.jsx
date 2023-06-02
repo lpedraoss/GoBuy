@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react";
+import  { useContext, useState } from "react";
 import UseAuthUser from "../../hook/use_auth_user";
 import UseValidateForm from "../../hook/use_validate_form";
 import useMessage from "../../hook/use_message";
 import Message from "../pure/message";
 import { Link, useNavigate } from "react-router-dom";
-import Header from "../pure/header";
+
 import AuthContext from "../../context/auth/auth_context";
 
 
@@ -51,7 +51,7 @@ function Login() {
       
       login();
       await new Promise((resolve) => setTimeout(resolve, 2000));
-      route('/next')
+      route('/productos')
     };
 
     const onFailure = () => {
@@ -75,7 +75,7 @@ function Login() {
 
   return (
     <>
-     <Header></Header>
+    
       <fieldset className="contenedor">
         <form className="formulario" onSubmit={handleLogin}>
           <h1>Login</h1>

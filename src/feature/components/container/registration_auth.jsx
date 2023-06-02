@@ -5,7 +5,7 @@ import UseCreateUser from '../../hook/use_create_user';
 import useMessage from '../../hook/use_message';
 import UseValidateForm from '../../hook/use_validate_form';
 import Message from '../pure/message';
-import Header from '../pure/header';
+
 
 
 
@@ -62,7 +62,7 @@ const RegistrationAuth = () => {
 
   return (
     <>
-      <Header></Header>
+     
       <main className="contenedor">
         <form className="formulario" onSubmit={handleSubmit}>
           <h1>Registrate</h1>
