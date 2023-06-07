@@ -2,25 +2,24 @@ import  { useContext, } from 'react';
 import CartContext from '../../context/carrito/carrito_context';
 
 const Cart = () => {
-  const { cartItems, calculateTotal, removeFromCart, updateQuantity, updateStock } = useContext(CartContext);
+  const { cartItems, calculateTotal, removeFromCart, updateQuantity,} = useContext(CartContext);
 
   const handleRemoveFromCart = (productId) => {
     removeFromCart(productId);
   };
 
-  const handleQuantityChange = (productId, newQuantity) => {
-    updateQuantity(productId, newQuantity);
-  };
+
 
   const handleBuy = () => {
     cartItems.forEach((item) => {
-      updateStock(item.id, item.quantity); // Actualizar stock del producto
-      if (item.quantity >= item.stock) {
-        removeFromCart(item.id); // Eliminar producto si el stock llega a cero
+      updateQuantity(item.id, item.quantity); // Actualizar la cantidad del producto
+    });
+    cartItems.forEach((item) => {
+      if (item.quantity <= 0) {
+        removeFromCart(item.id); // Eliminar producto si la cantidad llega a cero
       }
     });
   };
-
   return (
   
       <ul id="carrito">

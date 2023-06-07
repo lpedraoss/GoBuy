@@ -1,18 +1,17 @@
 
-import React, { useContext, useEffect, useState } from "react";
-import { producto as datos_productos } from "../../../common/datos_entorno";
+import React, { useContext } from "react";
+import { producto  } from "../../../common/datos_entorno";
 import CarritoContext from '../../context/carrito/carrito_context';
 import Cart from './carrito';
+import UseDataProduct from "../../hook/use_data_product";
 
 const Informacion_producto = () => {
   
-  const [datos, setDatos] = useState([]);
-const { addToCart } = useContext(CarritoContext);
-  useEffect(() => {
-    setDatos(datos_productos);
-  }, []);
 
-  if (datos.length === 0) {
+  const { addToCart } = useContext(CarritoContext);
+  const { productos } = UseDataProduct();
+
+  if (productos.length === 0) {
     return <h1>NO HAY DATOS</h1>;
   }
 
@@ -23,7 +22,7 @@ const { addToCart } = useContext(CarritoContext);
   return (
   <article id="contenedor_producto">
     <ul id="productos">
-      {datos.map((dato) => (
+      {productos.map((dato) => (
         <li key={dato.id}>
           <h2>{dato.nombre}</h2>
           <img className="img-producto" src={dato.imagen} alt={dato.nombre} />
