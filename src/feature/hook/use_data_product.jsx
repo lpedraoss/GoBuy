@@ -1,8 +1,8 @@
 import  { useEffect, useState } from 'react';
 const UseDataProduct = () => {
     const [productos, setProductos] = useState([]);
-    //const productApi = "https://646d4d739c677e232189e51a.mockapi.io/product";
-    const productApi = "/src/common/datos_producto.json"
+    const productApi = "https://646d4d739c677e232189e51a.mockapi.io/product";
+    //const productApi = "/src/common/datos_producto.json"
     useEffect(() => {
       fetchData(productApi);
     }, []);
