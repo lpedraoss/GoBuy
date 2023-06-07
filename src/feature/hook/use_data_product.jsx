@@ -11,7 +11,7 @@ const UseDataProduct = () => {
       try {
         const response = await fetch(url);
         const jsonData = await response.json();
-        const product = jsonData.product;
+        const product = jsonData;
         setProductos(product);
       } catch (error) {
         console.error("Error fetching data:", error);
