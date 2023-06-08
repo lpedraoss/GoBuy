@@ -1,0 +1,7 @@
+// Asegúrate de tener instalado Babel en tu proyecto. Puedes hacerlo ejecutando el siguiente comando en la terminal:
+// npm install --save-dev @babel/preset-env
+
+{
+    "presets": ["@babel/preset-env"]
+}
+  

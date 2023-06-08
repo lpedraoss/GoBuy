@@ -10,11 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "http-proxy-middleware": "^2.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.2"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.22.4",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^4.0.0",

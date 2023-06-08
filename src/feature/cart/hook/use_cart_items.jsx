@@ -5,38 +5,32 @@ const useCartItems = () => {
     const [cartItems, setCartItems] = useState([]);
     let updatedCartItems;
     const addToCart = (product) => {
-        //revisa la cantidad existente del producto
         if (product.quantity > 0) {
-        //confirma la existencia de este producto en el carrito
-        let existingProduct = cartItems.find((item) => 
-        item.id === product.id);
-
-        if (existingProduct) {
-            // Esta parte del código verifica si el producto ya existe en el carrito (existingProduct). 
-            // Si existe, se realiza una comprobación adicional para determinar si se pueden agregar más 
-            // unidades de ese producto al carrito.
-            if (existingProduct.quantity < product.quantity) {
-                // Si existingProduct.quantity (la cantidad del producto existente en el carrito) 
-                // es menor que product.quantity (la cantidad del producto que se está intentando agregar), 
-                // significa que aún hay espacio para agregar más unidades de ese producto al carrito.
-            setCartItems((prevItems) =>
-            prevItems.map((item) =>
-                item.id === product.id
-                ? { ...item, quantity: item.quantity + 1 }
-                : item
-            )
-            );
+            let existingProduct = cartItems.find((item) => item.id === product.id);
+            if (existingProduct) {
+                if (existingProduct.quantity < product.quantity) {
+                setCartItems((prevItems) =>
+                prevItems.map((item) =>
+                    item.id === product.id
+                    ? { ...item, quantity: item.quantity + 1 }
+                    : item
+                )
+                );
+            } else {
+                console.log(
+                "No se pueden agregar más unidades de este producto al carrito"
+                );
+            }
+            } else {
+            setCartItems((prevItems) => [
+                ...prevItems,
+              { ...product, quantity: 1, quantityToBuy: 0 }, // Agregar quantityToBuy inicializado en 0
+            ]);
+            }
         } else {
-            console.log("No se pueden agregar más unidades de este producto al carrito");
+            console.log("No hay stock disponible de este producto");
         }
-        } else {
-        setCartItems((prevItems) => [...prevItems, { ...product, quantity: 1 }]);
-        }
-    } else {
-        console.log("No hay stock disponible de este producto");
-    }
-    };
-
+        };
     const removeFromCart = (productId) => {
         //En esta parte del código, la función removeFromCart se encarga de eliminar un producto del carrito de compras.
         updatedCartItems = cartItems.filter((item) => item.id !== productId);
