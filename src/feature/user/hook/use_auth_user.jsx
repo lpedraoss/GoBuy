@@ -9,7 +9,7 @@ import UserContext from '../context/user_context';
 const UseAuthUser = () => {
 
   const { urlApi } = useUserData();
-  const {setNameContext} = useContext(UserContext)
+  const {setNameContext, setEmailContext} = useContext(UserContext)
   const [authenticatedUser, setAuthenticatedUser] = useState(null);
   const [authenticatedEmail, setAuthenticatedEmail] = useState(null);
   
@@ -22,23 +22,24 @@ const UseAuthUser = () => {
       const usersData = await response.json();
     
       //compara los valores ingresados con los que hay en el json, si se encuentra extrae el json de ese usuario
-      const authenticatedUser =  usersData.find(
+      const authenticateUser =  usersData.find(
         (user) => user.email === email && user.password === password
       );
-      const authenticatedEmail =  usersData.find(
+      const authenticateEmail =  usersData.find(
         (user) => user.email === email
       );
      
-      if(!authenticatedEmail){
-        setAuthenticatedEmail(authenticatedEmail);
+      if(!authenticateEmail){
+        setAuthenticatedEmail(authenticateEmail);
         console.log('usuario inexistente:',email);
         authEmail();
-      }else  if (authenticatedUser) {
-        setAuthenticatedUser(authenticatedUser);
-        // ya autenticado el usuario, se extrae el nombre de este mismo
-        const {name} = authenticatedUser; 
-        setNameContext(name);
-        console.log("Usuario autenticado:", authenticatedUser);
+      }else  if (authenticateUser) {
+        setAuthenticatedUser(authenticateUser);
+        // ya autenticado el usuario, se extrae el nombre y el email de este mismo
+        const { name,email } = authenticateUser; 
+        setNameContext( name );
+        setEmailContext( email );
+        console.log("Usuario autenticado:", authenticateUser);
         onSuccess();
       } else {
         onFailure();

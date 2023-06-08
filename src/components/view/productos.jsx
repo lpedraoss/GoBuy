@@ -2,6 +2,8 @@ import React from "react";
 import Informacion_producto from "../pure/productos_informacion";
 import Menu from "../pure/menu_inicio";
 import { useNavigate } from 'react-router-dom';
+import FooterGoBuy from "../pure/footer_goBuy";
+import GoTop from "../pure/go_top";
 
 const Productos = () => {
     const route = useNavigate();
@@ -45,32 +47,10 @@ const Productos = () => {
       </main>
 
       {/* Pie de pagina */}
-      <footer id="footer">
-        <ul className="contenedor-footer">
-          <li className="content-foo">
-            <h4>Phone</h4>
-            <p>301 542 7889</p>
-          </li>
-          <li className="content-foo">
-            <h4>Email</h4>
-            <p>metasoft@gmail.com</p>
-          </li>
-          <li className="content-foo">
-            <h4>Location</h4>
-            <p>Calle falsa #123</p>
-          </li>
-        </ul>
-        <h2 className="titulo-final">
-          &copy; Metasoft | Sofware de intercambios y ventas
-        </h2>
-      </footer>
+      <FooterGoBuy></FooterGoBuy>
 
       {/* Boton Gotop */}
-      <div id="go-top-container" className="go-top-container">
-        <div className="go-top-button">
-          <img src="img/flecha-hacia-arriba.png" alt="" />
-        </div>
-      </div>
+      <GoTop></GoTop>
     </>
   );
 };

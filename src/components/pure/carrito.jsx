@@ -1,5 +1,7 @@
 import  { useContext, } from 'react';
 import CartContext from '../../feature/cart/context/carrito_context';
+import FooterGoBuy from './footer_goBuy';
+import Header from './header';
 
 
 const Cart = () => {
@@ -23,27 +25,27 @@ const Cart = () => {
     });
   };
   return (
-  
+    <>
       <ul id="carrito">
+        {cartItems.map((item) => (
 
-        
-      
-      {cartItems.map((item) => (
+          <li key={item.id}>
 
-        <li key={item.id}>
+            <h2>{item.nombre}</h2>
+            <img className="img-producto" src={item.imagen} alt={item.nombre} />
+            <span className="precio">Precio: {item.precio}</span>
+            <span className="cantidad">Cantidad: {item.quantity}</span>
+            <button className="agregar-carrito" onClick={() => handleRemoveFromCart(item.id)}> Quitar del carrito </button>
+            
+          </li>
+        ))}
+        <h3>Total: {calculateTotal()}</h3>
 
-          <h2>{item.nombre}</h2>
-          <img className="img-producto" src={item.imagen} alt={item.nombre} />
-          <span className="precio">Precio: {item.precio}</span>
-          <span className="cantidad">Cantidad: {item.quantity}</span>
-          <button className="agregar-carrito" onClick={() => handleRemoveFromCart(item.id)}> Quitar del carrito </button>
-          
-        </li>
-      ))}
-      <h3>Total: {calculateTotal()}</h3>
-
-      <button className="agregar-carrito" onClick={ handleBuy }>Comprar</button>
-</ul>
+        <button className="agregar-carrito" onClick={ handleBuy }>Comprar</button>
+      </ul>
+   
+    </>
+    
   );
 };
 

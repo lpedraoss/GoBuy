@@ -3,13 +3,13 @@ import React, { useContext } from "react";
 
 import Cart from './carrito';
 
-import CarritoContext from "../../feature/cart/context/carrito_context";
+import CartContext from "../../feature/cart/context/carrito_context";
 import UseDataProduct from "../../data/product/use_data_product";
 
 const Informacion_producto = () => {
   
 
-  const { addToCart } = useContext(CarritoContext);
+  const { addToCart } = useContext(CartContext);
   const { productos } = UseDataProduct();
   
   if (productos.length === 0) {

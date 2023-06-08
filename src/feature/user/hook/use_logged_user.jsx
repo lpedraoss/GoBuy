@@ -1,14 +1,12 @@
 
-import React, { useState } from 'react';
-import AuthContext from './auth_context';
+import { useState } from 'react';
 import { Status } from '../../../utils/status.enum';
 
-const AuthProvider = ({children}) => {
-    let statusLogin = Status.LOGGED_OUT;
+const UseLoggedUser = () => {
+    let statusLogin = Status.LOGGED_INITIAL;
     // se crea como falsa para que se redireccione automaticamente al login
     const [authenticated, setAuthenticated] = useState(statusLogin);
     console.log('sesion: ', authenticated)
-   
     const login = ()=> {
         statusLogin = Status.LOGGED_IN;
         
@@ -20,13 +18,8 @@ const AuthProvider = ({children}) => {
         setAuthenticated(statusLogin);
         console.log('cerrando sesion: ',statusLogin);
     }
-    return (
-        <>
-            <AuthContext.Provider value={{ authenticated,login,logout }} >
-                { children }
-            </AuthContext.Provider>   
-        </>
-    );
+
+    return  { login,logout, authenticated };
 }
 
-export default AuthProvider;
+export default UseLoggedUser;

@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import UserContext from "../../feature/user/context/user_context";
-import AuthContext from "../../feature/user/context/auth_context";
+
 
 const Menu = () => {
-    const { logout } = useContext(AuthContext);
-    const { name } = useContext(UserContext);
+
+    const { logout } = useContext(UserContext);
     const handleLogout = () => {
       logout();
     };
