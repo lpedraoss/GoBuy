@@ -1,7 +1,9 @@
 import  { useContext, } from 'react';
-import CartContext from '../../context/carrito/carrito_context';
+import CartContext from '../../feature/cart/context/carrito_context';
+
 
 const Cart = () => {
+
   const { cartItems, calculateTotal, removeFromCart, updateQuantity,} = useContext(CartContext);
 
   const handleRemoveFromCart = (productId) => {

@@ -1,13 +1,16 @@
 import React, { useContext, useState } from "react";
-import UseAuthUser from "../../hook/use_auth_user";
-import UseValidateForm from "../../hook/use_validate_form";
-import useMessage from "../../hook/use_message";
-import Message from "../pure/message";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../pure/header";
-import AuthContext from "../../context/auth/auth_context";
+import AuthContext from "../../feature/user/context/auth_context";
+import useMessage from "../../feature/utils/use_message";
+import UseValidateForm from "../../feature/utils/use_validate_form";
+import Message from "../pure/message";
+import UseAuthUser from "../../feature/user/hook/use_auth_user";
+
+
 
 function Login() {
+  UseAuthUser
   const { login } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

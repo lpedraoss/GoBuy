@@ -1,12 +1,15 @@
 import React, { useContext } from 'react';
-import UserContext from '../../context/user/user_context';
 
-import AuthContext from '../../context/auth/auth_context';
+import AuthContext from '../../feature/user/context/auth_context';
+import UserContext from '../../feature/user/context/user_context';
+
+
 
 
 
 
 const Next = () => {
+
     const { logout } = useContext(AuthContext); 
     const { name } = useContext(UserContext);
     const handleLogout = ()=>{

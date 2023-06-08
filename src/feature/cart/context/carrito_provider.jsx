@@ -1,6 +1,6 @@
 import  { useState } from 'react';
 import CarritoContext from './carrito_context';
-import useCartItems from '../../hook/use_cart_items';
+import useCartItems from '../hook/use_cart_items';
 
 const CartProvider = ({ children }) => {
 

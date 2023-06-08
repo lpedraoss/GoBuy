@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import AuthContext from './auth_context';
-import { Status } from '../../../common/status.enum';
+import { Status } from '../../../utils/status.enum';
 
 const AuthProvider = ({children}) => {
     let statusLogin = Status.LOGGED_OUT;

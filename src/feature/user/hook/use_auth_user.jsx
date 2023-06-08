@@ -1,6 +1,6 @@
 import  { useState, useEffect, useContext } from 'react';
-import useUserData from './use_data_user';
-import UserContext from '../context/user/user_context';
+import useUserData from '../../../data/user/use_data_user';
+import UserContext from '../context/user_context';
 
 
 

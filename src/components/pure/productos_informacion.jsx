@@ -1,16 +1,17 @@
 
 import React, { useContext } from "react";
-import { producto  } from "../../../common/datos_entorno";
-import CarritoContext from '../../context/carrito/carrito_context';
+
 import Cart from './carrito';
-import UseDataProduct from "../../hook/use_data_product";
+
+import CarritoContext from "../../feature/cart/context/carrito_context";
+import UseDataProduct from "../../data/product/use_data_product";
 
 const Informacion_producto = () => {
   
 
   const { addToCart } = useContext(CarritoContext);
   const { productos } = UseDataProduct();
-
+  
   if (productos.length === 0) {
     return <h1>NO HAY DATOS</h1>;
   }

@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import Informacion_producto from "../pure/productos_informacion";
+
 import Informacion from "../pure/inicio_informacion";
 import Menu from "../pure/menu_inicio";
-import UserContext from "../../context/user/user_context";
+import UserContext from "../../feature/user/context/user_context";
 
 const Inicio = () => {
   const {name} = useContext(UserContext);

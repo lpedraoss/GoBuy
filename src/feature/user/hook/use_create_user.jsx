@@ -1,5 +1,5 @@
-import  { useState } from 'react';
-import useUserData from './use_data_user';
+
+import useUserData from '../../../data/user/use_data_user';
 
 const UseCreateUser = () => {
     const {urlApi,setUsers} = useUserData();

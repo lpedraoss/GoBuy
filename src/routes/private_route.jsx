@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { Navigate, Route } from 'react-router-dom';
-import Inicio from '../feature/components/container/inicio';
-import Productos from '../feature/components/container/productos';
+import Inicio from '../components/view/inicio';
+import Productos from '../components/view/productos';
 
-import AuthContext from '../feature/context/auth/auth_context';
-import { Status } from '../common/status.enum';
+import AuthContext from '../feature/user/context/auth_context';
+import { Status } from '../utils/status.enum';
 
-import Cart from '../feature/components/pure/carrito';
+import Cart from '../components/pure/carrito';
 const PrivateRoute = ({ to }) => {
     const { authenticated } = useContext(AuthContext);
     if (authenticated === Status.LOGGED_IN) {

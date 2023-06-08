@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import UserContext from "../../context/user/user_context";
-import AuthContext from "../../context/auth/auth_context";
+import UserContext from "../../feature/user/context/user_context";
+import AuthContext from "../../feature/user/context/auth_context";
 
 const Menu = () => {
     const { logout } = useContext(AuthContext);
