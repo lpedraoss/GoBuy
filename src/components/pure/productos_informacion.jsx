@@ -6,6 +6,7 @@ import Cart from './carrito';
 import CartContext from "../../feature/cart/context/carrito_context";
 import UseDataProduct from "../../data/product/use_data_product";
 
+
 const Informacion_producto = () => {
 
   const { addToCart } = useContext(CartContext);

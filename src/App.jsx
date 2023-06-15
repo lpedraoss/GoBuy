@@ -6,20 +6,21 @@ import CartProvider from './feature/cart/context/carrito_provider'
 
 
 import RouteGobuy from './routes/route_gobuy'
+import ViewComponentProvider from './feature/utils/view_component/context/view_component_provider'
+
 
 
 function App() {
 
   return (
     <>
-
       <UserProvider>
-        <CartProvider>
-          <RouteGobuy/>
-        </CartProvider>
+        <ViewComponentProvider>
+          <CartProvider>
+            <RouteGobuy/>
+          </CartProvider>
+        </ViewComponentProvider>
       </UserProvider>
-
-    
     </>
   )
 }

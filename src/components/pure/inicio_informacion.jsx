@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import UseViewComponent from '../../feature/utils/view_component/use_view_component';
+import ViewComponentContext from '../../feature/utils/view_component/context/view_component_context';
+import { View } from '../../utils/view.enum';
 
 
 const Informacion = () => {
-
+  const { viewComponent } = useContext( ViewComponentContext );
   const route = useNavigate();
   const GoCart = () => {
-    route('/carrito');
+    // route('/carrito');
+    let goCart = View.CART;
+    viewComponent( goCart )
   };
   const handleGoCart = () => {
-    route('/productos');
+    // route('/productos');
+    let goProduct = View.PRODUCTO
+    viewComponent( goProduct );
   };
 
     return (
