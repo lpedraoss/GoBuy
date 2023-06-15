@@ -12,28 +12,21 @@ const Menu = () => {
     };
     return (
       <>
-
         <nav id="nav">
         {
           view === View.INFORMACION?
-          
-           (
+          (
             <>
               <a href="#sobre-nosotros">Acerca de</a>
               <a href="#portafolio">Portafolio</a>
               <a href="#servicios">Servicios</a>
               <a href="#footer">Contacto</a>
             </>
-            
             )
           :
             <></>
         }
-          
-          
-          
-         
-          <a onClick={handleLogout} style={{ cursor: "pointer" }}>
+          <a onClick={ handleLogout } style={{ cursor: "pointer" }}>
             cerrar sesion
           </a>
         </nav>
