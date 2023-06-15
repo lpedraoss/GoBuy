@@ -1,17 +1,15 @@
 import React, { useContext } from 'react';
 import Menu from './menu_inicio';
-import { useNavigate } from 'react-router-dom';
-import UseViewComponent from '../../feature/utils/view_component/use_view_component';
+
+
 import ViewComponentContext from '../../feature/utils/view_component/context/view_component_context';
 import { View } from '../../utils/view.enum';
 
 const HeaderGobuy = () => {
     const { viewComponent } = useContext(ViewComponentContext);
-    const route = useNavigate();
+
     const handleGoCart = () => {
-    //   route('/inicio');
         let goInformacion = View.INFORMACION;
-        
         viewComponent( goInformacion );
     };
     return (
